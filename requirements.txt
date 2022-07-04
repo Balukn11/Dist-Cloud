@@ -13,4 +13,4 @@ selenium
 webdriver-manager
 bs4
 scipy
-geckodriver
+Google Chrome 103.0.5060.53
