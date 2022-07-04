@@ -13,5 +13,4 @@ tensorflow
 selenium
 webdriver-manager
 bs4
-time
 scipy
