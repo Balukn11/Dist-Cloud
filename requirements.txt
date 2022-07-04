@@ -7,10 +7,8 @@ MarkupSafe==2.0.1
 numpy==1.21.4
 Werkzeug==2.0.2
 gunicorn
-sklearn
 pandas
 tensorflow
 selenium
 webdriver-manager
 bs4
-scipy
