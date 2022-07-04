@@ -33,7 +33,7 @@ def upload():
             option.add_argument("--disable-dev-shm-usage")
             option.add_argument("--disable-gpu")
             option.add_argument("--no-sandbox")
-            driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=option)
+            driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), option=option)
             driver.get(url)
             prev_h = 0
             while True:
