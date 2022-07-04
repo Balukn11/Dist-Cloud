@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 
-<div class="center">
-  <link rel="stylesheet" href="./../static/style/dcc.css" />
-  <h1>Video Quality Detection</h1>
-  <form method="post" action="/predict">
-    <div class="inputbox">
-      <input type="text" name="Url" required="required" />
-      <span>Type The Url</span>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./../static/style/dcc.css" />
+  </head>
+  <body>
+    <div class="center">
+
+      <h1>Video Quality Detection</h1>
+      <form method="post" action="/predict">
+        <div class="inputbox">
+          <input type="text" name="Url" required="required" />
+          <span>Type The Url</span>
+        </div>
+        <div class="inputbox">
+          <input type="submit" value="submit" />
+        </div>
+      </form>
     </div>
-    <div class="inputbox">
-      <input type="submit" value="submit" />
-    </div>
-  </form>
-</div>
+  </body>
+</html>
