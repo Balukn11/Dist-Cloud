@@ -8,7 +8,7 @@ numpy==1.21.4
 Werkzeug==2.0.2
 gunicorn
 pandas
-tensorflow
+tensorflow==2.9.1
 selenium
 webdriver-manager
 bs4
