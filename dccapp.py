@@ -6,7 +6,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from selenium import webdriver
-from webdriver_manager.firefox import GeckoDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import time
 import pandas as pd
@@ -25,9 +25,9 @@ def upload():
         #return render_template("ab.html")
         comment_list = []
         def ScrapComment(url):
-            option = webdriver.FirefoxOptions()
+            option = webdriver.ChromeOptions()
             option.add_argument("--headless")
-            driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+            driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
             driver.get(url)
             prev_h = 0
             while True:
@@ -59,7 +59,7 @@ def upload():
                 
         ScrapComment(urls)
 
-        df = pd.read_csv("Tweets.csv")
+        df = pd.read_csv("./Tweets.csv")
         tweet_df = df[['text','airline_sentiment']]
         tweet_df = tweet_df[tweet_df['airline_sentiment'] != 'neutral']
         sentiment_label = tweet_df.airline_sentiment.factorize()
@@ -70,7 +70,7 @@ def upload():
         encoded_docs = tokenizer.texts_to_sequences(tweet)
         padded_sequence = pad_sequences(encoded_docs, maxlen=200)
 
-        model = load_model("Analysis.h5")
+        model = load_model("./Analysis.h5")
         def predict_sentiment(text):
             tw = tokenizer.texts_to_sequences([text])
             tw = pad_sequences(tw,maxlen=200)
