@@ -6,7 +6,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 from bs4 import BeautifulSoup
 import time
 import pandas as pd
@@ -25,9 +25,9 @@ def upload():
         #return render_template("ab.html")
         comment_list = []
         def ScrapComment(url):
-            option = webdriver.ChromeOptions()
+            option = webdriver.FirefoxOptions()
             option.add_argument("--headless")
-            driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=option)
+            driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
             driver.get(url)
             prev_h = 0
             while True:
