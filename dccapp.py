@@ -16,7 +16,7 @@ app = Flask(__name__)
 @app.route("/", methods=['GET'])
 
 def home():
-        return render_template("dcc2.html")
+        return render_template(["dcc2.html","dcc.css"])
 @app.route("/predict", methods=['POST'])
 def upload():
     if request.method == 'POST':
