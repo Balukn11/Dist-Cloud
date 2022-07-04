@@ -58,7 +58,7 @@ def upload():
                 
         ScrapComment(urls)
 
-        df = pd.read_csv(r"C:\Users\ADMIN\Downloads\Tweets.csv")
+        df = pd.read_csv("./Tweets.csv")
         tweet_df = df[['text','airline_sentiment']]
         tweet_df = tweet_df[tweet_df['airline_sentiment'] != 'neutral']
         sentiment_label = tweet_df.airline_sentiment.factorize()
@@ -69,7 +69,7 @@ def upload():
         encoded_docs = tokenizer.texts_to_sequences(tweet)
         padded_sequence = pad_sequences(encoded_docs, maxlen=200)
 
-        model = load_model(r"C:\Users\ADMIN\Downloads\Analysis.h5")
+        model = load_model("./Analysis.h5")
         def predict_sentiment(text):
             tw = tokenizer.texts_to_sequences([text])
             tw = pad_sequences(tw,maxlen=200)
