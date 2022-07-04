@@ -13,3 +13,4 @@ selenium
 webdriver-manager
 bs4
 scipy
+geckodriver
