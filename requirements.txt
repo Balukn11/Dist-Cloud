@@ -14,4 +14,3 @@ webdriver_manager
 beautifulsoup4
 scipy
 schedule==0.6.0
-xlrd==1.2.0
