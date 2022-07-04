@@ -11,9 +11,11 @@ from bs4 import BeautifulSoup
 import time
 import pandas as pd
 import numpy as np
+import os
 
 app = Flask(__name__)
-
+app.static_folder = 'static'
+app.template_folder = 'templates'
 @app.route("/", methods=['GET'])
 
 def home():
@@ -26,8 +28,12 @@ def upload():
         comment_list = []
         def ScrapComment(url):
             option = webdriver.ChromeOptions()
+            option.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
             option.add_argument("--headless")
-            driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=option)
+            option.add_argument("--disable-dev-shm-usage")
+            option.add_argument("--disable-gpu")
+            option.add_argument("--no-sandbox")
+            driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=option)
             driver.get(url)
             prev_h = 0
             while True:
