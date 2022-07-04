@@ -13,11 +13,11 @@ import pandas as pd
 import numpy as np
 
 app = Flask(__name__)
-app.static_folder = 'static'
+
 @app.route("/", methods=['GET'])
 
 def home():
-        return render_template(["templates/dcc2.html","styles/dcc.css"])
+        return render_template(["dcc2.html","dcc.css"])
 @app.route("/predict", methods=['POST'])
 def upload():
     if request.method == 'POST':
