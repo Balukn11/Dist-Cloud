@@ -10,7 +10,8 @@ gunicorn
 pandas
 tensorflow-cpu
 selenium
-webdriver-manager
-bs4
+webdriver_manager
+beautifulsoup4
 scipy
-Google Chrome 103.0.5060.53
+schedule==0.6.0
+xlrd==1.2.0
